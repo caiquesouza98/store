@@ -23,22 +23,22 @@ public class UserController {
   }
 
   @GetMapping("/user")
-  List<User> all() {
+  public List<User> all() {
     return repository.findAll();
   }
 
   @GetMapping("/user/{id}")
-  User one(@PathVariable Long id) {
+  public User one(@PathVariable Long id) {
     return repository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
   }
 
   @PostMapping("/user")
-  User newEmployee(@RequestBody User user) {
+  public User newEmployee(@RequestBody User user) {
     return repository.save(user);
   }
 
   @PutMapping("/user/{id}")
-  User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
+  public User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
     return repository.findById(id).map(employee -> {
       employee.setName(newUser.getName());
       employee.setRole(newUser.getRole());
@@ -50,7 +50,7 @@ public class UserController {
   }
 
   @DeleteMapping("/user/{id}")
-  void deleteEmployee(@PathVariable Long id) {
+  public void deleteEmployee(@PathVariable Long id) {
     repository.deleteById(id);
   }
 }

@@ -13,13 +13,16 @@ public class Produtos {
   private @Id @GeneratedValue Long id;
   private String name;
   private Categoria categoria;
-  private Long price;
+  private Float price;
   private ArrayList<Size> size;
 
   public Produtos() {
   }
 
-  public Produtos(String name, Categoria categoria, Long price, ArrayList<Size> size) {
+  public Produtos(String name,
+                  Categoria categoria,
+                  Float price,
+                  ArrayList<Size> size) {
     this.setName(name);
     this.setCategoria(categoria);
     this.setPrice(price);
@@ -38,7 +41,7 @@ public class Produtos {
     return categoria;
   }
 
-  public Long getPrice() {
+  public Float getPrice() {
     return price;
   }
 
@@ -54,7 +57,7 @@ public class Produtos {
     this.categoria = categoria;
   }
 
-  public void setPrice(Long price) {
+  public void setPrice(Float price) {
     this.price = price;
   }
 
